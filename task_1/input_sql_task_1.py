@@ -37,6 +37,8 @@ delete_employee = """
             """
 
 
-# task 3 # FOREIGN KEY REFERENCES customer(id)
-
-
+retrive_employee_by_name = """
+            SELECT name, salary 
+            FROM employees
+            WHERE name = %s;
+            """
