@@ -3,7 +3,7 @@ from typing import Literal
 from collections import OrderedDict
 
 
-def dict_func(employees: list[dict[Literal["name", "position", "salary"], str | float | int]]):
+def employees_processor(employees: list[dict[Literal["name", "position", "salary"], str | float | int]]):
     return OrderedDict(
         {"salary_gt_50000": [employee["name"] for employee in employees if employee["salary"] > 50000],
         "average_salary": round((sum([employee["salary"] for employee in employees]) / len(employees)), 2),
@@ -13,7 +13,7 @@ def dict_func(employees: list[dict[Literal["name", "position", "salary"], str | 
 
 
 if __name__ == "__main__":
-    res = dict_func(
+    res = employees_processor(
         employees=[
             {"name": "Иван", "position": "разработчик", "salary": 55000},
             {"name": "Анна", "position": "аналитик", "salary": 48000},
