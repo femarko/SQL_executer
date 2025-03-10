@@ -1,6 +1,6 @@
 import psycopg2
 
-from app.config import config
+from task_1.app.config import config
 
 
 pspg2_conn = psycopg2.connect(

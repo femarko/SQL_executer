@@ -1,12 +1,10 @@
 import dataclasses
 import enum
-
 import pydantic
+
 from typing import TypeVar, Optional
 
-from app.domain import custom_errors
-
-# todo: check validation models for tasks other than number 1
+from task_1.app.domain import custom_errors
 
 PydanticModel = TypeVar("PydanticModel", bound=pydantic.BaseModel)
 
@@ -47,6 +45,19 @@ class ValidationMethods(str, enum.Enum):
     UPDATE_DELETE_PRODUCT = "validate_update_delete_product_data"
 
 class Validator:
+    """
+    The Validator class is used to validate data against pydantic models.
+
+    The Validator receives a ValidationModels object in its constructor and
+    provides methods to validate data against the models defined in the
+    ValidationModels object.
+
+    The `validate_data` method is a generic method that takes a model and
+    validates the given data against it. All the other methods are just
+    wrappers around this method.
+
+    :param validation_models: An instance of the ValidationModels dataclass.
+    """
     def __init__(self, validation_models: ValidationModels):
         self.validation_models = validation_models
 
@@ -65,9 +76,6 @@ class Validator:
 
     def validate_update_delete_employee_data(self, **employee_data: dict):
         return self._validate_data(validation_model=self.validation_models.update_delete_employee, data=employee_data)
-
-    # def validate_delete_employee_data(self, **employee_data: dict):
-    #     return self._validate_data(validation_model=self.validation_models.update_delete_employee, data=employee_data)
 
     def validate_update_delete_product_data(self, **product_data: dict):
         return self._validate_data(validation_model=self.validation_models.update_delete_product, data=product_data)
