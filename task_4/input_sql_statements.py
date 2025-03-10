@@ -8,7 +8,7 @@ create_emploees_task_4_table = """
             """
 
 drop_employees_task_4_table = """
-            DROP TABLE employees_task_4;
+            DROP TABLE IF EXISTS employees_task_4;
             """
 
 insert_employees_into_employees_task_4_table = """
