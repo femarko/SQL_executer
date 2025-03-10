@@ -11,7 +11,7 @@ create_emploees_table = """
             """
 
 drop_employees_table = """
-            DROP TABLE employees;
+            DROP TABLE IF EXISTS employees;
             """
 
 insert_employees = """
