@@ -1,6 +1,7 @@
 from typing import Optional
 
-from task_1 import app as domain, app as db, app as validation
+from task_1.app.domain import custom_errors, sql_executor
+from task_1.app.infrastructure import db_connection, validation
 
 
 def execute_sql(
@@ -24,14 +25,14 @@ def execute_sql(
              "data_fetched" contains fetched data if `fetchall` is True and execution is successful.
     """
     if fetchall:
-        executor = domain.SQLExecutor(
-            connection=db.pspg2_conn,
+        executor = sql_executor.SQLExecutor(
+            connection=db_connection.pspg2_conn,
             validator=validation.Validator(validation_models=validation.ValidationModels()),
             fetchall=True
         )
     else:
-        executor = domain.SQLExecutor(
-            connection=db.pspg2_conn,
+        executor = sql_executor.SQLExecutor(
+            connection=db_connection.pspg2_conn,
             validator=validation.Validator(validation_models=validation.ValidationModels()),
             fetchall=False
         )

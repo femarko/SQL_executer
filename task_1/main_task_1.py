@@ -32,13 +32,13 @@ print(
     execute_sql(
         sql_statement=input_sql_task_1.update_salary,
         values={"salary": 60000, "name": "Иван"},
-        validation_method=validation.ValidationMethods.UPDATE_EMPLOYEE
+        validation_method=validation.ValidationMethods.UPDATE_DELETE_EMPLOYEE
     )
 )
 print(
     execute_sql(
         sql_statement=input_sql_task_1.delete_employee,
         values={"name": 4},
-        validation_method=validation.ValidationMethods.DELETE_EMPLOYEE
+        validation_method=validation.ValidationMethods.UPDATE_DELETE_EMPLOYEE
     )
 )

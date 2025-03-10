@@ -1,6 +1,6 @@
-.env
-.env.dev
 venv_fenster_mv/
 .idea/
 __pycache__/
 .coverage
+*.env
+*.env.dev
