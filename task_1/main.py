@@ -1,4 +1,4 @@
-import input_sql_task_1
+import input_sql_statements
 from task_1.app.entrypoint import execute_sql
 from task_1.app.infrastructure import validation
 
@@ -12,38 +12,38 @@ values_list = [
 ]
 
 def script_for_task_1() -> dict:
-    drop_employees_table_result = execute_sql(sql_statement=input_sql_task_1.drop_employees_table)
+    drop_employees_table_result = execute_sql(sql_statement=input_sql_statements.drop_employees_table)
     create_emploees_table_result = execute_sql(
-        sql_statement=input_sql_task_1.create_emploees_table,
+        sql_statement=input_sql_statements.create_emploees_table,
         validation_method=validation.ValidationMethods.CREATE_EMPLOYEE
     )
     insert_employees_results = []
     for values_item in values_list:
         res = execute_sql(
-            sql_statement=input_sql_task_1.insert_employees,
+            sql_statement=input_sql_statements.insert_employees,
             values=values_item,
             validation_method=validation.ValidationMethods.CREATE_EMPLOYEE
         )
         insert_employees_results.append(res)
-    retrieve_result = execute_sql(sql_statement=input_sql_task_1.retrive_salary_gt_50000, fetchall=True)
+    retrieve_result = execute_sql(sql_statement=input_sql_statements.retrive_salary_gt_50000, fetchall=True)
     update_salary_result = execute_sql(
-            sql_statement=input_sql_task_1.update_salary,
+            sql_statement=input_sql_statements.update_salary,
             values={"salary": 60000, "name": "Иван"},
             validation_method=validation.ValidationMethods.UPDATE_DELETE_EMPLOYEE
     )
     employee_deletion_result = execute_sql(
-        sql_statement=input_sql_task_1.delete_employee,
+        sql_statement=input_sql_statements.delete_employee,
         values={"name": "Анна"},
         validation_method=validation.ValidationMethods.UPDATE_DELETE_EMPLOYEE
     )
     retrieve_ivan = execute_sql(
-        sql_statement=input_sql_task_1.retrive_employee_by_name,
+        sql_statement=input_sql_statements.retrive_employee_by_name,
         values={"name": "Иван"},
         validation_method=validation.ValidationMethods.UPDATE_DELETE_EMPLOYEE,
         fetchall=True
     )
     retrieve_anna = execute_sql(
-        sql_statement=input_sql_task_1.retrive_employee_by_name,
+        sql_statement=input_sql_statements.retrive_employee_by_name,
         values={"name": "Анна"},
         validation_method=validation.ValidationMethods.UPDATE_DELETE_EMPLOYEE,
         fetchall=True
@@ -64,7 +64,6 @@ def script_for_task_1() -> dict:
 if __name__ == "__main__":
 
     result = script_for_task_1()
-
 
     assert result["drop"]["status"] == "success"
     assert result["create"]["status"] == "success"

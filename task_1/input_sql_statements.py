@@ -1,6 +1,3 @@
-# task 1
-from functools import total_ordering
-
 create_emploees_table = """
             CREATE TABLE IF NOT EXISTS employees (
                 id SERIAL PRIMARY KEY,
