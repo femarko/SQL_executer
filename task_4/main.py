@@ -1,6 +1,6 @@
 from typing import Callable
 
-from app.entrypoint import execute_sql
+from .app.entrypoint import execute_sql
 from task_4 import input_sql_statements
 from task_4.file_to_db import FileToDB
 
@@ -21,7 +21,7 @@ def script_for_task_4(file_to_db: FileToDB, sql_executor: Callable, *args) -> di
 if __name__ == "__main__":
     execute_sql(sql_statement=input_sql_statements.drop_employees_task_4_table)
     execute_sql(sql_statement=input_sql_statements.create_emploees_task_4_table)
-    file_to_db = FileToDB(file_path="example.csv", sql_executor=execute_sql, keys=("name", "position", "salary"))
+    file_to_db = FileToDB(file_path="task_4/example.csv", sql_executor=execute_sql, keys=("name", "position", "salary"))
     result: dict = script_for_task_4(file_to_db=file_to_db, sql_executor=execute_sql)
 
     for item in result["file_to_db_result"]:

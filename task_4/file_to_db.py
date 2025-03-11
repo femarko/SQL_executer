@@ -1,7 +1,7 @@
 from typing import Callable
 from typing import Iterable, Optional, Literal
 
-from app.infrastructure.validation import ValidationMethods
+from task_4.app.infrastructure.validation import ValidationMethods
 
 
 class FileToDB:
