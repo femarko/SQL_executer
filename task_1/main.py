@@ -1,4 +1,4 @@
-import input_sql_statements
+from task_1 import input_sql_statements
 from task_1.app.entrypoint import execute_sql
 from task_1.app.infrastructure import validation
 
