@@ -1,7 +1,5 @@
-from input_sql_task_1 import update_salary
-
 drop_products_table = """
-    DROP TABLE products;
+    DROP TABLE IF EXISTS products;
     """
 
 create_products_table = """
@@ -19,9 +17,15 @@ insert_products = """
             """
 
 retrieve_products_lt_10 = """
-            SELECT *
+            SELECT id, name
             FROM products
             WHERE quantity < 10;
+            """
+
+retrieve_products_by_id = """
+            SELECT id, name, price
+            FROM products
+            WHERE id = %s;
             """
 
 update_product_price = """

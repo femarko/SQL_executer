@@ -26,6 +26,7 @@ class CreateProduct(pydantic.BaseModel):
 
 
 class UpdateDeleteProduct(pydantic.BaseModel):
+    id: Optional[int] = None
     name: Optional[str] = None
     price: Optional[float] = None
     quantity: Optional[int] = None

@@ -86,7 +86,7 @@ class SQLExecutor:
         with self.connection as c:
             cursor = c.cursor()
         try:
-            cursor.execute(sql_statement, values)
+            cursor.execute(sql_statement, values)  # todo: values - what it must be?
             c.commit()
         except Exception as e:
             message = self.err_mapper.get(type(e), str(e))  # type: ignore
