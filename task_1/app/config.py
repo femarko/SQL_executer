@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 if os.getenv('DOCKER') is not None:
     load_dotenv('.env')
 else:
-    load_dotenv('.env.dev')
+    load_dotenv('.env.example')
 
 config = {
     "postgres_user": os.getenv("POSTGRES_USER"),

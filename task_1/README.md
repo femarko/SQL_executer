@@ -4,11 +4,11 @@
 `task_1.main.script_for_task_1`
 
 Функционал подключения к БД и обработки SQL-запросов реализован в приложении `app` 
-(оно же используется и в `task_4`).
+(оно также используется в `task_4` и в `task_7`).
 ### Запуск на локальном хосте
 - запуск docker-контейнеров с PostgreSQL, PGAdmin:
 ```bash
-$ docker-compose -f task_1/docker-compose_task_1.yaml --env-file .env.example up -d
+$ docker-compose -f task_1/docker-compose_task_1.yaml up -d
 ```
 - запуск скрипта, который требовалось написать:
 ```bash
@@ -18,13 +18,18 @@ $ python3 -m task_1.main
 говорит об успешном выполнении скрипта с тестовыми данными.
 ### Просмотр таблиц БД
 
-- посмотреть таблицы БД можно в PGAdmin: http://localhost:5050/
-
-Если откроется страница аутентификации пользователя PGAdmin, в полях для 
-электронной почты и пароля нужно ввести значения переменных 
-```PGADMIN_DEFAULT_EMAIL```, ```PGADMIN_DEFAULT_PASSWORD``` из файла 
-```Fenster_MV/.env.example```.
-
+- ссылка для просмотра таблиц БД: http://localhost:5050/
+- если откроется страница аутентификации пользователя PGAdmin:
+  - в полях для электронной почты и пароля нужно ввести значения переменных 
+  ```PGADMIN_DEFAULT_EMAIL```, ```PGADMIN_DEFAULT_PASSWORD``` из файла ```task_1/.env.example```
+  - после входа в систему во всплывающем окне Set Master Password нужно установить пароль по 
+  собственному усмотрению и в разделе Quick Links выбрать Add New Server
+  - в открывшемся окне в поле Name ввести название соединения по собственному усмотрению
+  - перейти на вкладку Connection, в которой:
+    - в поле Host name/address, ввести значение переменной ```POSTGRES_HOST``` из файла 
+    ```task_1/.env.example```
+    - в поле Port ввести: 5432,
+    - в полях Maintenance database, Username, Password ввести: postgres.
 ### Остановка docker-контейнеров
 ```bash
 $ docker-compose -f task_1/docker-compose_task_1.yaml down
