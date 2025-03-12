@@ -93,13 +93,9 @@ class SQLExecutor:
             return {"status": "error", "message": message}
         if self.fetchall:
             try:
-                # result = SQLExecutorResult(status=ResultStatus.SUCCESS.value, data_fetched=cursor.fetchall())
                 result = {"status": "success", "data_fetched": cursor.fetchall()}
             except Exception as e:
                 message = self.err_mapper.get(type(e), str(e))  # type: ignore
-                # result = SQLExecutorResult(status=ResultStatus.ERROR.value, message=message)
                 result = {"status": "error", "message": message}
             return result
-            # return {"status": result.status, "message": result.message, "data_fetched": result.data_fetched}
-        # result = SQLExecutorResult(status=ResultStatus.SUCCESS.value)
         return {"status": "success"}

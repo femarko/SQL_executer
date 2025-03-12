@@ -15,8 +15,3 @@ config = {
     "postgres_host": os.getenv("POSTGRES_HOST"),
     "postgres_port": os.getenv("POSTGRES_PORT")
 }
-
-
-
-if __name__ == "__main__":
-    print(config)

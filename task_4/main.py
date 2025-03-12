@@ -5,7 +5,7 @@ from task_4 import input_sql_statements
 from task_4.file_to_db import FileToDB
 
 
-def script_for_task_4(file_to_db: FileToDB, sql_executor: Callable, *args) -> dict[str, list[dict[str, str | None]]]:
+def script_for_task_4(file_to_db: FileToDB, sql_executor: Callable) -> dict[str, list[dict[str, str | None]]]:
     file_to_db_result = file_to_db.write_file_content_to_db()
     retrieve_result: dict[str, str | None] = file_to_db.retrieve_employees_by_position(position="test_position_3")
     update_salary_result = file_to_db.update_salary(name="test_name_2", salary=200000)
