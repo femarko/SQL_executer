@@ -1,29 +1,31 @@
 ### Комментарии
-Скрипт, который требовалось написать:
+SQL-запросы, которые требовалось написать:
 
-`task_7.main.script_for_task_7`
+`task_3.sql_statements`
 
+Также добавлена возможность выполнения данных запросов: `task_3.execution.py`.\
 Функционал подключения к БД и обработки SQL-запросов реализован в приложении `app` 
-(оно также используется в `task_1` и в `task_4`).\
-"Сырой" SQL импортируется в `task_7.main` из `task_7.input_sql_statements`.
+(оно также используется в `task_1`, `task_4`, `task_7`).\
+"Сырой" SQL импортируется в `task_3.main` из `task_3.sql_statements` (запросы,
+необходимые для подготовки БД и таблиц, импортируются из `task_3/auxiliary_sql_statements/__init__.py`).
 ### Запуск на локальном хосте
 *Все команды выполняются из корневой директории проекта*
 - запуск docker-контейнеров с PostgreSQL, PGAdmin:
 ```bash
-$ docker-compose -f task_7/docker-compose_task_7.yaml up -d
+$ docker-compose -f task_3/docker-compose_task_3.yaml up -d
 ```
-- запуск скрипта, который требовалось написать:
+- запуск выполнения SQL-запросов, которые требовалось написать:
 ```bash
-$ python3 -m task_7.main
+$ python3 -m task_3.execution
 ```
 Отсутствие в командной строке трассировки исключений (AssertionError и других)
-говорит об успешном выполнении скрипта с тестовыми данными.
+говорит об успешном выполнении с тестовыми данными.
 ### Просмотр таблиц БД
 
 - ссылка для просмотра таблиц БД: http://localhost:5050/
 - если откроется страница аутентификации пользователя PGAdmin:
   - в полях для электронной почты и пароля нужно ввести значения переменных 
-  ```PGADMIN_DEFAULT_EMAIL```, ```PGADMIN_DEFAULT_PASSWORD``` из файла ```task_4/.env.example```
+  ```PGADMIN_DEFAULT_EMAIL```, ```PGADMIN_DEFAULT_PASSWORD``` из файла ```task_1/.env.example```
   - после входа в систему во всплывающем окне Set Master Password нужно установить пароль по 
   собственному усмотрению и в разделе Quick Links выбрать Add New Server
   - в открывшемся окне в поле Name ввести название соединения по собственному усмотрению
@@ -34,5 +36,5 @@ $ python3 -m task_7.main
     - в полях Maintenance database, Username, Password ввести: postgres.
 ### Остановка docker-контейнеров
 ```bash
-$ docker-compose -f task_7/docker-compose_task_7.yaml down
+$ docker-compose -f task_3/docker-compose_task_3.yaml down
 ```

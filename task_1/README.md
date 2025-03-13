@@ -7,6 +7,7 @@
 (оно также используется в `task_4` и в `task_7`).\
 "Сырой" SQL импортируется в `task_1.main` из `task_1.input_sql_statements`.
 ### Запуск на локальном хосте
+*Все команды выполняются из корневой директории проекта*
 - запуск docker-контейнеров с PostgreSQL, PGAdmin:
 ```bash
 $ docker-compose -f task_1/docker-compose_task_1.yaml up -d

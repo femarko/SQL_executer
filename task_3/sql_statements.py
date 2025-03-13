@@ -31,7 +31,6 @@ customer_max_total_order = """
             """
 
 # 3. Найти количество заказов, сделанных в 2023 году.
-
 orders_in_2023 = """
             SELECT 
                 COUNT(*) AS number_of_orders
